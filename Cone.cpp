@@ -26,6 +26,10 @@ void Cone::setHeight(double height)
 
 void Cone::setVolume(double volume)
 {
+    if(!checkInputData(volume)) {
+        std::cout << "invalid value of 'volume'\n";
+        volume = 0;
+    }
     _radius = sqrt(volume / SCALE);
     _height = 1.0;
 }
@@ -70,5 +74,4 @@ Cone::Cone(double radius, double reight) :
 
 Cone::~Cone()
 {
-    std::cout << "destructor\n" << std::flush;
 }
